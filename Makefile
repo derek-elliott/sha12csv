@@ -6,7 +6,7 @@ ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 BINARY=sha12csv
 VERSION=0.1
-BUILD=`git rev-parse HEAD`
+BUILD=`git rev-parse --short HEAD`
 PLATFORMS=linux windows
 ARCHITECTURES=amd64
 
@@ -21,7 +21,7 @@ build:
 
 build_all:
 	$(foreach GOOS, $(PLATFORMS),\
-	$(foreach GOARCH, $(ARCHITECTURES), $(shell export GOOS=$(GOOS); export GOARCH=$(GOARCH); go build -v -o $(BINARY)-$(GOOS)-$(GOARCH))))
+	$(foreach GOARCH, $(ARCHITECTURES), $(shell export GOOS=$(GOOS); export GOARCH=$(GOARCH); go build -v -o build/$(BINARY)-$(GOOS)-$(GOARCH))))
 
 install:
 	go install ${LDFLAGS}
