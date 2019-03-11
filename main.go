@@ -16,12 +16,17 @@ import (
 	"github.com/urfave/cli"
 )
 
+var (
+	Version, Build string
+)
+
 func main() {
 	var workers int
 	var outputFile string
 	app := cli.NewApp()
 	app.Name = "sha12csv"
 	app.Usage = "List the sha1 sum of files in a folder in a csv"
+	app.Version = Version
 	app.Flags = []cli.Flag{
 		cli.BoolFlag{
 			Name:  "verbose, V",
