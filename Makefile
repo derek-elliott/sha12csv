@@ -5,7 +5,7 @@ K := $(foreach exec,$(EXECUTABLES),\
 ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 BINARY=sha12csv
-VERSION=0.0.1
+VERSION=0.1
 BUILD=`git rev-parse HEAD`
 PLATFORMS=linux windows
 ARCHITECTURES=amd64
