@@ -7,7 +7,7 @@ ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 BINARY=sha12csv
 VERSION=0.1
 BUILD=`git rev-parse --short HEAD`
-PLATFORMS=linux windows
+PLATFORMS=darwin linux windows
 ARCHITECTURES=amd64
 
 LDFLAGS=-ldflags "-X main.Version=${VERSION} -X main.Build=${BUILD}"
